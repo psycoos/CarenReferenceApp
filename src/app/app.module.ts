@@ -4,7 +4,8 @@ import { MyApp } from './app.component';
 import { AppComponent } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { OAuthModule } from 'angular-oauth2-oidc';
-import { HttpModule }      from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -13,8 +14,9 @@ import { HttpModule }      from '@angular/http';
   ],
   imports: [
     IonicModule.forRoot(AppComponent),
-    OAuthModule.forRoot()
-
+    OAuthModule.forRoot(),
+    HttpModule,
+    JsonpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
