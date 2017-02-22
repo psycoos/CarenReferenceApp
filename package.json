@@ -24,6 +24,7 @@
     "angular-oauth2-oidc": "^1.0.20",
     "angular2-oauth2": "^1.3.10",
     "angularjs-oauth2": "^1.2.1",
+    "hal-serializer": "^1.0.0",
     "ionic-angular": "2.0.1",
     "ionic-native": "2.4.1",
     "ionicons": "3.0.0",

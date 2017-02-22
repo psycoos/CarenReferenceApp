@@ -3,22 +3,24 @@ import { NavController, Platform } from 'ionic-angular';
 import { OAuthService } from 'angular2-oauth2/oauth-service';
 import { Http, Headers } from '@angular/http';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { User, UserService } from '../../providers/user-service';
 
-var headers = new Headers();
-headers.append("Authorization", "bearer b06a369e874557b4d8272134b51d5fcf6365473979375d573870a9f9ade0b700");
 
 @Component({
-    templateUrl: 'home.html'
+    templateUrl: 'home.html',
+    providers: [UserService, UserService]
 })
 export class HomePage {
+    public user: User;
 
-    http: Http;
 
 
-    constructor(private oAuthService: OAuthService, http: Http) {
+
+    constructor(private oAuthService: OAuthService, public userService: UserService) {
+      //this.loadUser();
     }
     public henk() {
-        window.alert("bier");
+        console.log(this.user);
     }
     public login() {
         this.oAuthService.initImplicitFlow();
@@ -29,10 +31,14 @@ export class HomePage {
         this.oAuthService.logOut();
     }
 
+    // loadUser(){
+    //   console.log('het werrkt (half)');
+    //   this.userService.load().subscribe((user:User)=>{
+    //     this.user=user;
+    //   });
+    //   console.log(this.user);
+    // }
 
-    getName() {
-      this.http.get('http://localhost:3005/api/v1/user')
-      .map(user => user.json())
 
-    }
+
 }
